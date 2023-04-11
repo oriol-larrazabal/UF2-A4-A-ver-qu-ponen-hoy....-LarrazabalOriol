@@ -78,28 +78,15 @@ if (file_exists('./xml/cine.xml')) {
                 </tr>
             </thead>
             <tbody>
+<!-- Bucle para mostrar las películas -->
             <?php
-            if(isset($_GET['cine'])){
-                /* Filtrar por cine */
                 foreach($films->film as $film){
-                    if($_GET['cine']==$film['cine']){
                         echo '<tr>';
                         echo '<td>'.$film->title.'</td>';
                         echo '<td class="hidden">'.$film->description.'</td>';
                         echo '<td>'.$film->description['tema'].'</td>';
                         echo '</tr>';
                     }
-                }
-            }else{
-                /* No filtro */
-                foreach($films->film as $film){
-                    echo '<tr>';
-                    echo '<td>'.$film->title.'</td>';
-                    echo '<td class="hidden">'.$film->description.'</td>';
-                    echo '<td>'.$film->description['tema'].'</td>';
-                    echo '</tr>';
-                }
-            }
             ?>
             </tbody>
         </table>
