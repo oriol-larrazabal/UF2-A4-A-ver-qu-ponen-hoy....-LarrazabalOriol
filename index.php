@@ -80,13 +80,23 @@ if (file_exists('./xml/cine.xml')) {
             <tbody>
 <!-- Bucle para mostrar las películas -->
             <?php
+            if(isset($_GET['cine'])){
+                foreach($films->film as $film){
+                  if ($_GET['cine']==$fila['cine']){
+                        echo '<tr>';
+                        echo '<td>'.$film->title.'</td>';
+                        echo '<td class="hidden">'.$film->description.'</td>';
+                        echo '<td>'.$film->description['tema'].'</td>';
+                        echo '</tr>';
+                    }}}
+            else{
                 foreach($films->film as $film){
                         echo '<tr>';
                         echo '<td>'.$film->title.'</td>';
                         echo '<td class="hidden">'.$film->description.'</td>';
                         echo '<td>'.$film->description['tema'].'</td>';
                         echo '</tr>';
-                    }
+            }}
             ?>
             </tbody>
         </table>
